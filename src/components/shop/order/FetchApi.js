@@ -14,7 +14,6 @@ const Headers = () => {
 };
 
 
-
 export const getPaymentProcess = async (paymentData) => {
   try {
     let res = await axios.post(`${apiURL}/api/payment/process-payment`, paymentData);
