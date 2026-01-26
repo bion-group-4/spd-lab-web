@@ -1,6 +1,18 @@
 import axios from "axios";
 const apiURL = process.env.REACT_APP_API_URL;
 
+const BearerToken = () =>
+  localStorage.getItem("jwt")
+    ? JSON.parse(localStorage.getItem("jwt")).token
+    : false;
+const Headers = () => {
+  return {
+    headers: {
+      token: `Bearer ${BearerToken()}`,
+    },
+  };
+};
+
 
 
 export const getPaymentProcess = async (paymentData) => {
@@ -14,7 +26,7 @@ export const getPaymentProcess = async (paymentData) => {
 
 export const createOrder = async (orderData) => {
   try {
-    let res = await axios.post(`${apiURL}/api/order/create-order`, orderData);
+    let res = await axios.post(`${apiURL}/api/order/create-order`, orderData, Headers());
     return res.data;
   } catch (error) {
     console.log(error);
