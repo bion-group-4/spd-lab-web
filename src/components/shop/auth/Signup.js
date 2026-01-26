@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { signupReq } from "./fetchApi";
-import { signupReq } from "./fetchApi";
+
 import { useSnackbar } from 'notistack';
 import { logSignUp } from "../../../utils/analytics";
 const Signup = (props) => {
