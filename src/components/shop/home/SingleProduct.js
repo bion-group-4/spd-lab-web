@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { getAllProduct } from "../../admin/products/FetchApi";
 import { HomeContext } from "./index";
 import { isWishReq, unWishReq, isWish } from "./Mixins";
+import { renderImage } from "../../../utils/imageUrl";
 
 const apiURL = process.env.REACT_APP_API_URL;
 
@@ -68,7 +69,7 @@ const SingleProduct = (props) => {
                     <img
                       onClick={(e) => history.push(`/products/${item._id}`)}
                       className="w-full h-64 object-cover object-center cursor-pointer transform group-hover:scale-105 transition-transform duration-500"
-                      src={`${apiURL}/uploads/products/${item.pImages[0]}`}
+                      src={renderImage(item.pImages[0], "products")}
                       alt={item.pName}
                     />
 

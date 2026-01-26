@@ -91,7 +91,6 @@ export const logPurchase = (transactionId, amount, cartItems) => {
 };
 
 // --- User Events ---
-
 export const logLogin = (method = "email") => {
   logAnalyticsEvent("login", {
     method: method,

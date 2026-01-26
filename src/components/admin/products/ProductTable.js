@@ -3,6 +3,8 @@ import { getAllProduct, deleteProduct } from "./FetchApi";
 import moment from "moment";
 import { ProductContext } from "./index";
 
+import { renderImage } from "../../../utils/imageUrl";
+
 const apiURL = process.env.REACT_APP_API_URL;
 
 const AllProduct = (props) => {
@@ -139,7 +141,7 @@ const ProductTable = ({ product, deleteProduct, editProduct }) => {
         <td className="p-2 text-center">
           <img
             className="w-12 h-12 object-cover object-center"
-            src={`${apiURL}/uploads/products/${product.pImages[0]}`}
+            src={renderImage(product.pImages[0],"products")}
             alt="pic"
           />
         </td>

@@ -3,6 +3,7 @@ import OrderSuccessMessage from "./OrderSuccessMessage";
 import { HomeContext } from "./";
 import { sliderImages } from "../../admin/dashboardAdmin/Action";
 import { prevSlide, nextSlide } from "./Mixins";
+import { renderImage } from "../../../utils/imageUrl";
 
 const apiURL = process.env.REACT_APP_API_URL;
 
@@ -21,7 +22,7 @@ const Slider = (props) => {
         {data.sliderImages.length > 0 ? (
           <img
             className="w-full"
-            src={`${apiURL}/uploads/customize/${data.sliderImages[slide].slideImage}`}
+            src={renderImage(data.sliderImages[slide].slideImage, "customize")}
             alt="sliderImage"
           />
         ) : (
