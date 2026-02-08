@@ -16,7 +16,7 @@ const Headers = () => {
 
 export const getPaymentProcess = async (paymentData) => {
   try {
-    let res = await axios.post(`${apiURL}/api/payment/process-payment`, paymentData);
+    let res = await axios.post(`${apiURL}/api/payment/payment/process-payment`, paymentData);
     return res.data;
   } catch (error) {
     console.log(error);
@@ -25,7 +25,7 @@ export const getPaymentProcess = async (paymentData) => {
 
 export const createOrder = async (orderData) => {
   try {
-    let res = await axios.post(`${apiURL}/api/order/create-order`, orderData, Headers());
+    let res = await axios.post(`${apiURL}/api/orders`, orderData, Headers());
     return res.data;
   } catch (error) {
     console.log(error);

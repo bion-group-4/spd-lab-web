@@ -15,7 +15,7 @@ const Headers = () => {
 
 export const getAllOrder = async () => {
   try {
-    let res = await axios.get(`${apiURL}/api/order/get-all-orders`, Headers());
+    let res = await axios.get(`${apiURL}/api/orders`, Headers());
     return res.data;
   } catch (error) {
     console.log(error);
@@ -23,10 +23,10 @@ export const getAllOrder = async () => {
 };
 
 export const editCategory = async (oId, status) => {
-  let data = { oId: oId, status: status };
+  let data = { status: status };
   console.log(data);
   try {
-    let res = await axios.post(`${apiURL}/api/order/update-order`, data, Headers());
+    let res = await axios.put(`${apiURL}/api/orders/${oId}`, data, Headers());
     return res.data;
   } catch (error) {
     console.log(error);
@@ -34,9 +34,8 @@ export const editCategory = async (oId, status) => {
 };
 
 export const deleteOrder = async (oId) => {
-  let data = { oId: oId };
   try {
-    let res = await axios.post(`${apiURL}/api/order/delete-order`, data, Headers());
+    let res = await axios.delete(`${apiURL}/api/orders/${oId}`, Headers());
     return res.data;
   } catch (error) {
     console.log(error);

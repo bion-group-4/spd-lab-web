@@ -15,7 +15,7 @@ const Headers = () => {
 
 export const DashboardData = async () => {
   try {
-    let res = await axios.post(`${apiURL}/api/customize/dashboard-data`, null, Headers());
+    let res = await axios.get(`${apiURL}/api/customizes/dashboard`, Headers());
     return res.data;
   } catch (error) {
     console.log(error);
@@ -24,7 +24,7 @@ export const DashboardData = async () => {
 
 export const getSliderImages = async () => {
   try {
-    let res = await axios.get(`${apiURL}/api/customize/get-slide-image`);
+    let res = await axios.get(`${apiURL}/api/customizes`);
     return res.data;
   } catch (error) {
     console.log(error);
@@ -34,7 +34,7 @@ export const getSliderImages = async () => {
 export const postUploadImage = async (formData) => {
   try {
     let res = await axios.post(
-      `${apiURL}/api/customize/upload-slide-image`,
+      `${apiURL}/api/customizes`,
       formData,
       Headers()
     );
@@ -46,9 +46,7 @@ export const postUploadImage = async (formData) => {
 
 export const postDeleteImage = async (id) => {
   try {
-    let res = await axios.post(`${apiURL}/api/customize/delete-slide-image`, {
-      id,
-    }, Headers());
+    let res = await axios.delete(`${apiURL}/api/customizes/${id}`, Headers());
     return res.data;
   } catch (error) {
     console.log(error);

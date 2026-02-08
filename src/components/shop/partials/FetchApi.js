@@ -10,7 +10,7 @@ export const cartListProduct = async () => {
     }
   }
   try {
-    let res = await axios.post(`${apiURL}/api/product/cart-product`, {
+    let res = await axios.post(`${apiURL}/api/products/cart`, {
       productArray,
     });
     return res.data;

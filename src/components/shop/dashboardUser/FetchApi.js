@@ -15,7 +15,7 @@ const Headers = () => {
 
 export const getUserById = async (uId) => {
   try {
-    let res = await axios.post(`${apiURL}/api/user/signle-user`, { uId }, Headers());
+    let res = await axios.get(`${apiURL}/api/users/${uId}`, Headers());
     return res.data;
   } catch (error) {
     console.log(error);
@@ -24,7 +24,7 @@ export const getUserById = async (uId) => {
 
 export const updatePersonalInformationFetch = async (userData) => {
   try {
-    let res = await axios.post(`${apiURL}/api/user/edit-user`, userData, Headers());
+    let res = await axios.put(`${apiURL}/api/users/${userData.uId}`, userData, Headers());
     return res.data;
   } catch (error) {
     console.log(error);
@@ -33,7 +33,7 @@ export const updatePersonalInformationFetch = async (userData) => {
 
 export const getOrderByUser = async (uId) => {
   try {
-    let res = await axios.post(`${apiURL}/api/order/order-by-user`, { uId }, Headers());
+    let res = await axios.get(`${apiURL}/api/order/users/${uId}`, Headers());
     return res.data;
   } catch (error) {
     console.log(error);
@@ -42,7 +42,7 @@ export const getOrderByUser = async (uId) => {
 
 export const updatePassword = async (formData) => {
   try {
-    let res = await axios.post(`${apiURL}/api/user/change-password`, formData, Headers());
+    let res = await axios.put(`${apiURL}/api/users/${formData.uId}/password`, formData, Headers());
     return res.data;
   } catch (error) {
     console.log(error);
