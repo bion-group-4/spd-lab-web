@@ -9,6 +9,7 @@ export const cartListProduct = async () => {
       items.push({ productId: cart.id, quantity: cart.quantity || 1 });
     }
   }
+  if (items.length === 0) return { Products: [] };
   try {
     let res = await axios.post(`${apiURL}/api/products/cart`, {
       items,
