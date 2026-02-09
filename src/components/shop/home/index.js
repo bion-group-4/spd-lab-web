@@ -27,6 +27,7 @@ const HomeComponent = () => {
 const Home = (props) => {
   const [data, dispatch] = useReducer(homeReducer, homeState);
   const { dispatch: layoutDispatch } = useContext(LayoutContext);
+  const history = useHistory();
 
   useEffect(() => {
     if (
@@ -43,7 +44,8 @@ const Home = (props) => {
       }
       history.replace({ pathname: props.location.pathname, state: {} });
     }
-  }, [props.location, layoutDispatch, history]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.location?.state?.openLoginModal]);
 
   return (
     <Fragment>
