@@ -9,6 +9,7 @@ import {
   ProductDetails,
   ProductByCategory,
   CheckoutPage,
+  ShopPage,
 } from "./shop";
 import { DashboardAdmin, Categories, Products, Orders } from "./admin";
 import { UserProfile, UserOrders, SettingUser } from "./shop/dashboardUser";
@@ -23,6 +24,7 @@ const Routes = (props) => {
         {/* Shop & Public Routes */}
         <Route exact path="/" component={Home} />
         <Route exact path="/wish-list" component={WishList} />
+        <Route exact path="/shop" component={ShopPage} />
         <Route exact path="/products/:id" component={ProductDetails} />
         <Route
           exact
